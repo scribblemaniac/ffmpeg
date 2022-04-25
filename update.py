@@ -17,7 +17,7 @@ IMAGE_FORMAT_STR = "{0}/Dockerfile".format(DIR_FORMAT_STR)
 TEMPLATE_STR = "templates/Dockerfile-template.{0}"
 
 # https://ffmpeg.org/olddownload.html
-SKIP_VERSIONS = "3.1.11 3.0.12 snapshot"
+SKIP_VERSIONS = "3.1.11 3.0.12"
 VARIANTS = [
     {"name": "ubuntu1804", "parent": "ubuntu"},
     {"name": "ubuntu2004", "parent": "ubuntu"},
@@ -71,6 +71,7 @@ last = version.split(".")
 keep_version = []
 
 keep_version.append(version)
+keep_version.append("snapshot")
 
 
 def get_shorten_version(version):
@@ -226,7 +227,7 @@ for version in keep_version:
 
         # libavresample removed on v5, deprecated since v4.0
         # https://github.com/FFmpeg/FFmpeg/commit/c29038f3041a4080342b2e333c1967d136749c0f
-        if float(version[0]) < 5:
+        if version != "snapshot" and float(version[0]) < 5:
             FFMPEG_CONFIG_FLAGS.append("--enable-avresample")
 
         if variant["parent"] == "nvidia":

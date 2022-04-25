@@ -13,7 +13,7 @@ FROM        base AS build
 
 WORKDIR     /tmp/workdir
 
-ENV         FFMPEG_VERSION=3.2.16 \
+ENV         FFMPEG_VERSION=3.2.17 \
     AOM_VERSION=v1.0.0 \
     CHROMAPRINT_VERSION=1.5.0 \
     FDKAAC_VERSION=0.1.5 \
@@ -47,7 +47,7 @@ ENV         FFMPEG_VERSION=3.2.16 \
     LIBSRT_VERSION=1.4.1 \
     LIBARIBB24_VERSION=1.0.3 \
     LIBPNG_VERSION=1.6.9 \
-    LIBVMAF_VERSION=2.1.1 \
+    LIBVMAF_VERSION=2.3.1 \
     SRC=/usr/local
 
 ARG         FREETYPE_SHA256SUM="5eab795ebb23ac77001cfb68b7d4d50b5d6c7469247b0b01b2c953269f658dac freetype-2.10.4.tar.gz"
