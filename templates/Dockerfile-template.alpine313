@@ -37,7 +37,9 @@ RUN     buildDeps="autoconf \
                    tar \
                    xcb-proto \
                    yasm \
-                   zlib-dev" && \
+                   zlib-dev \
+                   meson \
+                   xxd \
         apk add --no-cache --update ${buildDeps}
 %%RUN%%
 
