@@ -97,7 +97,7 @@ RUN     buildDeps="autoconf \
                    yasm \
                    zlib-dev \
                    meson \
-                   xxd \
+                   xxd && \
         apk add --no-cache --update ${buildDeps}
 ## libvmaf https://github.com/Netflix/vmaf
 RUN \
