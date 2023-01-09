@@ -35,7 +35,7 @@ ENV        NVIDIA_HEADERS_VERSION=11.1.5.0
 
 ENV         FFMPEG_VERSION=4.4.3 \
     LIBSTVAV1_VERSION=v0.8.7 \
-    AOM_VERSION=v3.1.3 \
+    AOM_VERSION=3.1.3 \
     CHROMAPRINT_VERSION=1.5.0 \
     FDKAAC_VERSION=0.1.5 \
     FONTCONFIG_VERSION=2.12.4 \
@@ -375,7 +375,7 @@ RUN \
 
 RUN \
         DIR=/tmp/aom && \
-        git clone --branch ${AOM_VERSION} --depth 1 https://aomedia.googlesource.com/aom ${DIR} ; \
+        git clone --branch v${AOM_VERSION} --depth 1 https://aomedia.googlesource.com/aom ${DIR} ; \
         cd ${DIR} ; \
         rm -rf CMakeCache.txt CMakeFiles ; \
         mkdir -p ./aom_build ; \
