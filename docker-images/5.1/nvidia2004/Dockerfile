@@ -34,7 +34,7 @@ FROM  devel-base as build
 ENV        NVIDIA_HEADERS_VERSION=11.1.5.0
 
 ENV         FFMPEG_VERSION=5.1.2 \
-    LIBSTVAV1_VERSION=v0.8.7 \
+    LIBSVTAV1_VERSION=v1.4.1 \
     AOM_VERSION=3.1.3 \
     CHROMAPRINT_VERSION=1.5.0 \
     FDKAAC_VERSION=0.1.5 \
@@ -538,7 +538,7 @@ RUN \
         DIR=/tmp/svtav1 && \
         mkdir -p ${DIR} && \
         cd ${DIR} && \
-        git clone https://gitlab.com/AOMediaCodec/SVT-AV1.git ${DIR} --depth=1 -b ${LIBSTVAV1_VERSION} &&\
+        git clone https://gitlab.com/AOMediaCodec/SVT-AV1.git ${DIR} --depth=1 -b ${LIBSVTAV1_VERSION} &&\
         cd Build && \
         cmake .. -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${PREFIX}" && \
         make && \
