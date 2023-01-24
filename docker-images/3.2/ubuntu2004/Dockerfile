@@ -40,7 +40,7 @@ ENV         FFMPEG_VERSION=3.2.19 \
     VPX_VERSION=1.8.0 \
     WEBP_VERSION=1.0.2 \
     X264_VERSION=20170226-2245-stable \
-    X265_VERSION=3.4 \
+    X265_VERSION=3.5 \
     XAU_VERSION=1.0.9 \
     XORG_MACROS_VERSION=1.19.2 \
     XPROTO_VERSION=7.0.31 \
@@ -147,9 +147,9 @@ RUN \
         DIR=/tmp/x265 && \
         mkdir -p ${DIR} && \
         cd ${DIR} && \
-        curl -sL https://github.com/videolan/x265/archive/refs/tags/${X265_VERSION}.tar.gz | \
-        tar -zx && \
-        cd x265-${X265_VERSION}/build/linux && \
+        curl -sL https://bitbucket.org/multicoreware/x265_git/get/Release_${X265_VERSION}.tar.gz | \
+        tar -zx --strip-components=1 && \
+        cd build/linux && \
         sed -i "/-DEXTRA_LIB/ s/$/ -DCMAKE_INSTALL_PREFIX=\${PREFIX}/" multilib.sh && \
         sed -i "/^cmake/ s/$/ -DENABLE_CLI=OFF/" multilib.sh && \
         ./multilib.sh && \
